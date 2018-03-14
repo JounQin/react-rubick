@@ -11,7 +11,7 @@ const app = document.getElementById('app')
 const renderApp = () => {
   render(
     (
-      <Router>
+      <Router basename={ROUTE_BASE}>
         <App />
       </Router>
     ) as any,

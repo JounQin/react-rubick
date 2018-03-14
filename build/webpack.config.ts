@@ -1,7 +1,14 @@
 import HtmlWebpackPlugin from 'html-webpack-plugin'
-import { Configuration } from 'webpack'
+import webpack, { Configuration } from 'webpack'
 
-import { __DEV__, NODE_ENV, resolve, serverHost, serverPort } from './config'
+import {
+  NODE_ENV,
+  ROUTE_BASE,
+  __DEV__,
+  resolve,
+  serverHost,
+  serverPort,
+} from './config'
 
 const config: Configuration = {
   mode: NODE_ENV,
@@ -10,7 +17,7 @@ const config: Configuration = {
   },
   output: {
     path: resolve('dist'),
-    publicPath: `http://${serverHost}:${serverPort}`,
+    publicPath: __DEV__ ? `http://${serverHost}:${serverPort}` : ROUTE_BASE,
     filename: `[name].[${__DEV__ ? 'hash' : 'chunkhash'}].js`,
   },
   resolve: {
@@ -35,6 +42,9 @@ const config: Configuration = {
     },
   },
   plugins: [
+    new webpack.DefinePlugin({
+      ROUTE_BASE: JSON.stringify(ROUTE_BASE),
+    }),
     new HtmlWebpackPlugin({
       template: 'src/index.ejs',
       minify: {

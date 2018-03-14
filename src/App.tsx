@@ -1,4 +1,4 @@
-import { renderRoutes, RouteConfig } from 'react-router-config'
+import { RouteConfig, renderRoutes } from 'react-router-config'
 
 import Landing from './Landing'
 

@@ -3,3 +3,5 @@ interface NodeModule {
     accept: (path?: string, callback?: () => void) => void
   }
 }
+
+declare const ROUTE_BASE: string
