@@ -14,7 +14,7 @@ main() {
     local CREATED=1
 
     {
-      git clone https://user:${GH_TOKEN}@github.com/JounQin/reacy-rubick.git sync -b gh-pages
+      git clone https://user:${GH_TOKEN}@github.com/JounQin/react-rubick.git sync -b gh-pages
     } || {
       echo "branch \`gh-pages\` has not been created"
       CREATED=0
@@ -22,7 +22,7 @@ main() {
       cd sync
       git init
       git checkout -b gh-pages
-      git remote add origin https://user:${GH_TOKEN}@github.com/JounQin/reacy-rubick.git
+      git remote add origin https://user:${GH_TOKEN}@github.com/JounQin/react-rubick.git
       cd ..
     }
 
