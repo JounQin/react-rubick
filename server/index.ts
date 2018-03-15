@@ -8,7 +8,22 @@ const debug = _debug('rubick:server')
 
 const app = new Koa()
 
-const middlewares: Middleware[] = []
+const middlewares: Middleware[] = [
+  (ctx, next) => {
+    if (
+      ctx.method === 'GET' &&
+      ctx.accept.type('html') &&
+      !ctx.url
+        .split('/')
+        .reverse()[0]
+        .includes('.')
+    ) {
+      ctx.url = '/index.html'
+    }
+
+    return next()
+  },
+]
 
 if (process.env.NODE_ENV === 'development') {
   // tslint:disable-next-line:no-var-requires

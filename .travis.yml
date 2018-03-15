@@ -4,7 +4,7 @@ node_js: stable
 
 env:
   global:
-    - ROUTE_BASE=/react-rubick/
+    - ROUTE_BASE=/react-rubick
 
 cache: yarn
 

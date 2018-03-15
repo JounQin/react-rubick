@@ -17,7 +17,8 @@ const config: Configuration = {
   },
   output: {
     path: resolve('dist'),
-    publicPath: __DEV__ ? `http://${serverHost}:${serverPort}` : ROUTE_BASE,
+    publicPath:
+      (__DEV__ ? `http://${serverHost}:${serverPort}` : ROUTE_BASE) + '/',
     filename: `[name].[${__DEV__ ? 'hash' : 'chunkhash'}].js`,
   },
   resolve: {

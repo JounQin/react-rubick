@@ -8,6 +8,7 @@
   "rulesDirectory": ["tslint-plugin-prettier"],
   "rules": {
     "interface-name": false,
+    "member-access": false,
     "no-console": [true, "log"],
     "no-empty": [true, "allow-empty-catch"],
     "object-literal-sort-keys": false,

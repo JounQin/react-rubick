@@ -2,7 +2,7 @@ import React from 'react'
 import { render } from 'react-dom'
 import { BrowserRouter } from 'react-router-dom'
 
-import App from './App'
+import App from 'App'
 
 const Router = BrowserRouter as any
 
@@ -22,5 +22,5 @@ const renderApp = () => {
 renderApp()
 
 if (module.hot) {
-  module.hot.accept('./App', renderApp)
+  module.hot.accept('App', renderApp)
 }
