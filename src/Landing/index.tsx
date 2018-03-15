@@ -1,7 +1,5 @@
 import React from 'react'
-import { RouteConfig, renderRoutes as _renderRoutes } from 'react-router-config'
-
-const renderRoutes = _renderRoutes as any
+import { RouteConfig, renderRoutes } from 'react-router-config'
 
 export default class Landing extends React.PureComponent<{
   history: History

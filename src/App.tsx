@@ -1,10 +1,8 @@
 import React from 'react'
-import { Redirect as _Redirect } from 'react-router'
+import { Redirect } from 'react-router'
 import { RouteConfig, renderRoutes } from 'react-router-config'
 
 import { resolve } from 'utils'
-
-const Redirect = _Redirect as any
 
 const redirect = (path: string) => () => <Redirect to={path} />
 
