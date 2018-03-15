@@ -1,13 +1,9 @@
 import { ComponentType } from 'react'
 import { asyncComponent } from 'react-async-component'
 
-interface EsModuleComponent<P> {
-  default: ComponentType<P>
-}
+import { AsyncComponent, EsModuleComponent } from 'types'
 
-export const resolve = <P>(
-  Component: () => Promise<ComponentType<P> | EsModuleComponent<P>>,
-) =>
+export const resolve = <P>(Component: AsyncComponent<P>) =>
   asyncComponent({
     resolve: () =>
       Component().then(

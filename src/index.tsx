@@ -4,14 +4,12 @@ import { BrowserRouter as Router } from 'react-router-dom'
 
 import App from 'App'
 
-const app = document.getElementById('app')
-
 const renderApp = () => {
   render(
     <Router basename={ROUTE_BASE}>
       <App />
     </Router>,
-    app,
+    document.getElementById('app'),
   )
 }
 
