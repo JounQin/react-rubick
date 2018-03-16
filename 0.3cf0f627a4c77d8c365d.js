@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[0],{57:function(e,n,a){"use strict";a.r(n);var t=a(1),l=a.n(t);n.default=function(){return l.a.createElement(l.a.Fragment,null,l.a.createElement("nav",{className:"left-panel"}),l.a.createElement("main",null))}}}]);
