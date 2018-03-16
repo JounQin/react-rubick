@@ -22,6 +22,9 @@ const config: Configuration = {
     filename: `[name].[${__DEV__ ? 'hash' : 'chunkhash'}].js`,
   },
   resolve: {
+    alias: {
+      lodash$: 'lodash-es',
+    },
     modules: [resolve('src'), 'node_modules'],
     extensions: ['.ts', '.tsx', '.js'],
   },

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Redirect } from 'react-router'
+import { Redirect, RouteComponentProps } from 'react-router'
 import { RouteConfig } from 'react-router-config'
 
 import { AsyncComponent, ExtendedRouteConfig } from 'types'
@@ -8,13 +8,14 @@ import { resolve } from 'utils'
 import console from './console'
 import landing from './landing'
 
-const redirect = (path: string) => () => <Redirect to={path} />
+const redirect = (pathname: string) => ({
+  location,
+}: RouteComponentProps<{}>) => <Redirect to={{ ...location, pathname }} />
 
 const routeConfigs: ExtendedRouteConfig[] = [
   {
     path: '/',
-    exact: true,
-    redirect: '/landing',
+    redirect: '/console',
   },
   landing,
   console,
@@ -23,6 +24,9 @@ const routeConfigs: ExtendedRouteConfig[] = [
 const buildRoutes = (routes: ExtendedRouteConfig[], path = '') =>
   routes.map(route => {
     route = { ...route }
+    if (route.exact !== false) {
+      route.exact = true
+    }
     let routePath = route.path
     routePath = route.path =
       path +

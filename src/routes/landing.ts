@@ -1,18 +1,32 @@
-import { ExtendedRouteConfig } from 'types'
+import { last } from 'lodash'
+import { BreadCrumb, ExtendedRouteConfig } from 'types'
 
 export default {
   path: 'landing',
-  component: () => import('Landing'),
+  exact: false,
+  component: () => import('views/Landing'),
   routes: [
     {
       path: '',
-      exact: true,
       redirect: 'login',
     },
     {
-      path: 'login',
-      exact: true,
-      component: () => import('Landing/Login'),
+      path: '/login/:type(account)?',
+      component: () => import('views/Landing/Login'),
+      location: {
+        state: {
+          breadCrumb: ({
+            breadCrumbs,
+            params: { type },
+          }: {
+            breadCrumbs: BreadCrumb[]
+            params: { type: void | 'account' }
+          }) => {
+            last(breadCrumbs).label = (type ? 'account' : 'user') + '_login'
+            return breadCrumbs
+          },
+        },
+      },
     },
   ],
 } as ExtendedRouteConfig
