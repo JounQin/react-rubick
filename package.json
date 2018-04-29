@@ -71,7 +71,7 @@
     "prop-types": "^15.6.1",
     "rimraf": "^2.6.2",
     "ts-loader": "^4.0.1",
-    "ts-node": "^5.0.1",
+    "ts-node": "^6.0.2",
     "tslint": "^5.9.1",
     "tslint-config-prettier": "^1.10.0",
     "tslint-eslint-rules": "^5.1.0",
