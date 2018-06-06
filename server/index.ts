@@ -27,7 +27,9 @@ const middlewares: Middleware[] = [
 
 if (process.env.NODE_ENV === 'development') {
   // tslint:disable-next-line:no-var-requires
-  middlewares.push(require('./dev').default)
+  require('./dev').default.then((webpackMiddleware: Middleware) =>
+    app.use(webpackMiddleware),
+  )
 }
 
 app.use(compose(middlewares))

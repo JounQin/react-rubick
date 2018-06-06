@@ -15,9 +15,21 @@
     "ordered-imports": [
       true,
       {
+        "grouped-imports": true,
+        "import-sources-order": "lowercase-first",
         "named-imports-order": "lowercase-last"
       }
     ],
-    "prettier": true
+    "prettier": true,
+    "variable-name": [
+      true,
+      "ban-keywords",
+      "check-format",
+      "allow-leading-underscore",
+      "allow-pascal-case"
+    ]
+  },
+  "linterOptions": {
+    "exclude": ["node_modules/**"]
   }
 }

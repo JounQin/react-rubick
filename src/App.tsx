@@ -1,4 +1,4 @@
-import { last } from 'lodash'
+import { isEqual, last } from 'lodash'
 import React from 'react'
 import { RouteComponentProps, withRouter } from 'react-router'
 import { matchRoutes, renderRoutes } from 'react-router-config'
@@ -22,14 +22,24 @@ class App extends React.PureComponent<AppProps, AppState> {
     this.buildBreadCrumbs(this.props)
   }
 
-  componentWillReceiveProps(nextProps: AppProps) {
-    this.buildBreadCrumbs(nextProps)
+  componentDidUpdate(_prevProps: AppProps, prevState: AppState) {
+    const { breadCrumbs } = this.state
+
+    if (isEqual(prevState.breadCrumbs, breadCrumbs)) {
+      return
+    }
+
+    this.buildBreadCrumbs(this.props)
+
+    document.title =
+      'React Rubick | ' + breadCrumbs.map(({ label }) => label).join(' - ')
   }
 
   buildBreadCrumbs(props: AppProps) {
-    const { match: { params, path }, route: { location } } = last(
-      matchRoutes(routes, props.location.pathname),
-    )
+    const {
+      match: { params, path },
+      route: { location },
+    } = last(matchRoutes(routes, props.location.pathname))
 
     const p = path.replace(/(^\/)|(\/\:[^/]*)/g, '')
 
@@ -64,9 +74,6 @@ class App extends React.PureComponent<AppProps, AppState> {
     this.setState({
       breadCrumbs,
     })
-
-    document.title =
-      'React Rubick | ' + breadCrumbs.map(({ label }) => label).join(' - ')
   }
 
   render() {
