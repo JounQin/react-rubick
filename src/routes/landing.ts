@@ -1,4 +1,5 @@
 import { last } from 'lodash'
+
 import { BreadCrumb, ExtendedRouteConfig } from 'types'
 
 export default {

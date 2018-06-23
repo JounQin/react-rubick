@@ -1,3 +1,5 @@
-import createReactContext from 'create-react-context'
+import { createContext } from 'react'
 
-export const BreadCrumbContext = createReactContext([])
+import { BreadCrumb } from 'types'
+
+export const BreadCrumbContext = createContext<BreadCrumb[]>([])
