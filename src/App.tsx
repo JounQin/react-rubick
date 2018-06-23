@@ -1,4 +1,4 @@
-import { isEqual, last } from 'lodash'
+import { last } from 'lodash'
 import React from 'react'
 import { RouteComponentProps, withRouter } from 'react-router'
 import { matchRoutes, renderRoutes } from 'react-router-config'
@@ -16,23 +16,6 @@ interface AppState {
 class App extends React.PureComponent<AppProps, AppState> {
   state: AppState = {
     breadCrumbs: [],
-  }
-
-  componentDidMount() {
-    this.buildBreadCrumbs(this.props)
-  }
-
-  componentDidUpdate(_prevProps: AppProps, prevState: AppState) {
-    const { breadCrumbs } = this.state
-
-    if (isEqual(prevState.breadCrumbs, breadCrumbs)) {
-      return
-    }
-
-    this.buildBreadCrumbs(this.props)
-
-    document.title =
-      'React Rubick | ' + breadCrumbs.map(({ label }) => label).join(' - ')
   }
 
   buildBreadCrumbs(props: AppProps) {
@@ -74,6 +57,32 @@ class App extends React.PureComponent<AppProps, AppState> {
     this.setState({
       breadCrumbs,
     })
+
+    return breadCrumbs
+  }
+
+  setTitle() {
+    const title = this.buildBreadCrumbs(this.props)
+      .map(({ label }) => label)
+      .join(' - ')
+    document.title = 'React Rubick' + (title ? ' | ' + title : '')
+  }
+
+  componentDidMount() {
+    this.setTitle()
+  }
+
+  componentDidUpdate({ location: prevLocation }: AppProps) {
+    const { location } = this.props
+
+    if (
+      prevLocation.pathname + prevLocation.search ===
+      location.pathname + location.search
+    ) {
+      return
+    }
+
+    this.setTitle()
   }
 
   render() {
