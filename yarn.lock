@@ -176,9 +176,9 @@
     "@types/node" "*"
     "@types/react" "*"
 
-"@types/react-router-config@^1.0.7":
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/@types/react-router-config/-/react-router-config-1.0.7.tgz#0c1bc714c3cf5b49122806172da7e181c21c609d"
+"@types/react-router-config@^5.0.0":
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/@types/react-router-config/-/react-router-config-5.0.0.tgz#901110a781b5ca0e56886d18686196638cde75f0"
   dependencies:
     "@types/history" "*"
     "@types/react" "*"
