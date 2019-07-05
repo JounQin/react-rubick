@@ -54,7 +54,7 @@
     "@types/react-dom": "^16.0.6",
     "@types/react-router": "^4.0.27",
     "@types/react-router-config": "^1.0.7",
-    "@types/react-router-dom": "^4.2.7",
+    "@types/react-router-dom": "^4.3.4",
     "@types/webpack": "^4.4.2",
     "@types/webpack-env": "^1.13.9",
     "cross-env": "^5.2.0",
