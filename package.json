@@ -31,7 +31,7 @@
   "dependencies": {
     "koa": "^2.5.1",
     "koa-compose": "^4.1.0",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.13",
     "qs": "^6.5.2",
     "react": "^16.4.1",
     "react-async-component": "^2.0.0",
